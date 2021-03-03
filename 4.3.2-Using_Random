@@ -1,0 +1,43 @@
+float circleX;
+float circleY;
+float circleWidth = 10;
+float circleHeight = 10;
+
+float red = random(255);
+float green = random(255);
+float blue = random(255);
+float alpha = random(255);
+
+void setup() {
+  size(1000, 1000);
+  background(200);
+  
+  circleX = random(width);
+  circleY = random(width);
+}
+
+void draw() {
+  //background(150);
+  
+  //drawing stuff
+
+  fill(red, green, blue, alpha);
+  noStroke();
+  ellipse(circleX, circleY, circleWidth, circleHeight);   //ellipse(posX, posY, Width, Height)
+
+  //logic
+  circleX = circleX + random(-10,10);
+  circleY = circleY + random(-10,10);
+  circleWidth = random(50, 60);
+  circleHeight = random(50, 60);
+  
+  red = random(50,255);
+  green = random(50, 255);
+  blue = random(50, 255);
+  alpha = random(50, 255);
+
+  
+}
+
+//map();
+//constrain();
