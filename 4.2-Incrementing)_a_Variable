@@ -1,0 +1,36 @@
+float circleX = 50;
+float circleY = 1;
+float circleWidth = 5;
+
+float squareX = 100;
+float squareY = 10;
+float squareWidth = 10;
+float squareHeight =10;
+
+int red = 50;
+int green = 50;
+int blue = 200;
+int alpha = 100;
+
+void setup() {
+  size(640, 360);
+}
+
+void draw() {
+    background(150);
+  
+  //drawing stuff
+  fill(red, green, blue, alpha);
+  ellipse(circleX, 180, circleWidth, 24);   //ellipse(posX, posY, Width, Height)
+
+  fill(red, green, blue, alpha);
+  rect(squareX, squareY, squareWidth, squareHeight);  //rect(posX, posY, Width, Height)
+  
+  //logic
+  circleX = circleX + 0.5;
+  circleWidth = circleWidth + .5;
+  circleY = circleY + 2;
+  
+  squareX = squareX + 2;
+  squareY = mouseY;
+}
