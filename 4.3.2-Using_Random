@@ -1,3 +1,5 @@
+import processing.pdf.*;
+
 float circleX;
 float circleY;
 float circleWidth = 10;
@@ -8,7 +10,16 @@ float green = random(255);
 float blue = random(255);
 float alpha = random(255);
 
+//float hour = hour();
+//float minute = minute();
+//float second = second();
+//float day = day();
+//float month = month();
+//float year = year();
+
+
 void setup() {
+  beginRecord(PDF, hour() + "-" + minute() + "-" + second() + "-" + day() + ":" + month() + ":" + year() + ".pdf");
   size(1000, 1000);
   background(200);
   
@@ -17,8 +28,8 @@ void setup() {
 }
 
 void draw() {
-  //background(150);
-  
+
+   
   //drawing stuff
 
   fill(red, green, blue, alpha);
@@ -28,16 +39,19 @@ void draw() {
   //logic
   circleX = circleX + random(-10,10);
   circleY = circleY + random(-10,10);
-  circleWidth = random(50, 60);
-  circleHeight = random(50, 60);
+  circleWidth = random(10, 60);
+  circleHeight = circleWidth;
   
   red = random(50,255);
-  green = random(50, 255);
+  green = random(200, 225);
   blue = random(50, 255);
-  alpha = random(50, 255);
-
+  alpha = random(10, 255);
   
 }
 
-//map();
-//constrain();
+void keyPressed() {
+  if (key == 'q') {
+    endRecord();
+    exit();
+  }
+}
