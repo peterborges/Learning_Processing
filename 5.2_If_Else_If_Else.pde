@@ -8,11 +8,11 @@ void draw() {
   
   if (mouseX > 500){
     fill(255,0,0);
-    rect(300,100,50,50);
+    rect(500,100,50,50);
   } 
   else if (mouseX > 400) {
     fill(0,255,255);
-    rect(300,200,50,50);
+    rect(400,200,50,50);
   }
     else if (mouseX > 300) {
     fill(0,255,255);
@@ -20,11 +20,11 @@ void draw() {
   }
     else if (mouseX > 200) {
     fill(0,255,255);
-    rect(100,300,50,50);
+    rect(200,300,50,50);
   }
     else if (mouseX > 100) {
     fill(0,255,255);
-    rect(300,200,60,50);
+    rect(100,200,60,50);
   }
   
   stroke(255);
