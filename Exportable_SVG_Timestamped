@@ -1,27 +1,21 @@
 import processing.svg.*;
 
-void setup() {
+int m = minute();
+int h = hour();
+int s = second();
+int d = day();
+int mo = month();
+int yr = year();
 
-  size(640, 360);
+void setup() {
+  size(400, 400);
   noLoop();
-  beginRecord(SVG, getClass().getName()+ "_" +year() + "_" +month() + "_" +day() + "_" +hour() + "_" +minute() + "_" +second()+".svg"); //getClass is for getting the name of the sketch
-  //beginRecord(SVG, "filename.svg");
+  beginRecord(SVG, m + "-" + h + "-" + s + "-" + d + ":" + mo + ":" + yr +".svg");
 }
 
 void draw() {
   // Draw something good here
-  
-for(int i = 10; i < width; i += 10) {
-  // If 'i' divides by 20 with no remainder draw 
-  // the first line, else draw the second line
-  if((i % 20) == 0) {
-    stroke(0);
-    line(i, 80, i, height/2);
-  } else {
-    stroke(150);
-    line(i, 20, i, 180); 
-  }
-}
+  line(0, 0, width/2, height);
+
   endRecord();
-  exit();
 }
