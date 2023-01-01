@@ -1,0 +1,40 @@
+import processing.svg.*;
+
+int m = minute();
+int h = hour();
+int s = second();
+int d = day();
+int mo = month();
+int yr = year();
+
+void setup() {
+  size(500, 500);
+  beginRecord(SVG, m + "-" + h + "-" + s + "-" + d + ":" + mo + ":" + yr +".svg");
+  noLoop();
+}
+void draw() {
+  background(255);
+  stroke(0);
+  strokeWeight(2);
+  noFill();
+
+  for (int j = 0; j < 1 ; j++) {
+    float radius = random(50, 250); // radius of the circle
+    float angle = 0; // angle of the circle
+    float angleStep = TWO_PI / 100; // amount to increment the angle each time
+    float x = width/2 + radius * cos(angle); // x-coordinate of the circle
+    float y = height/2 + radius * sin(angle); // y-coordinate of the circle
+
+    beginShape();
+    for (int i = 0; i < 100; i++) {
+      curveVertex(x, y); // add a curve vertex at the current (x, y) coordinate
+      angle += angleStep; // increment the angle
+      x = width/2 + radius * cos(angle); // update the x-coordinate
+      y = height/2 + radius * sin(angle); // update the y-coordinate
+      x += random(-10, 10); // add a random horizontal offset
+      y += random(-10, 10); // add a random vertical offset
+    }
+    endShape(CLOSE); // close the shape to create a continuous loop
+    endRecord();
+  }
+}
