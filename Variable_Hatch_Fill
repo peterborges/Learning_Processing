@@ -1,0 +1,28 @@
+import processing.svg.*;
+
+int m = minute();
+int h = hour();
+int s = second();
+int d = day();
+int mo = month();
+int yr = year();
+
+void setup() {
+  size(2000, 1600);
+  stroke(0); //sets the color used to draw lines
+  strokeWeight(1); //sets the thickness of the drawn line
+  //beginRecord(SVG, m + "-" + h + "-" + s + "-" + d + ":" + mo + ":" + yr +".svg");
+  beginRecord(SVG, "Jan-9-22.svg");
+  noLoop(); //Stops Processing from continuously executing the code within draw() when used in setup() it should be last
+}
+
+void draw() {
+  // Draw something good here
+  for (int y = 0; y < height; y++) {
+  stroke(0);
+  line(random(0, width/2),y,random(width/2, width),y);
+  y = y + 4;
+  }
+
+  endRecord();
+}
