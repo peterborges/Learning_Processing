@@ -1,0 +1,31 @@
+//Jean-noël Lafargue
+//@Jean_no
+//Jan 4, 2021
+//Modified to support SVG export
+
+import processing.svg.*;
+
+void setup() {
+  size(500, 500, SVG, "squiggles.svg");
+}
+
+void draw() {
+  background(255); 
+  noFill(); 
+  stroke(0);
+  
+  for (float y=-12; y<520; y+=6) {
+    beginShape();  
+    for (int x=-10; x<530; x+=4) {
+      float o=noise(x*.01, y*.0015)*50-25;
+      vertex(x, y+o);
+    }  
+    endShape();
+  }
+
+  // Export the sketch as an SVG
+  if (frameCount == 1) {
+    endRecord();
+    exit();
+  }
+}
