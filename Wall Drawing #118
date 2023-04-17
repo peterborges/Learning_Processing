@@ -1,0 +1,33 @@
+//Sol Lewitt WALL DRAWING #118
+//https://www.amygoodchild.com/blog/chatgpt-sol-lewitt-wall-drawings
+//https://massmoca.org/sol-lewitt/
+
+import processing.svg.*;
+
+int m = minute();
+int h = hour();
+int s = second();
+int d = day();
+int mo = month();
+int yr = year();
+
+void setup() {
+  size(1200, 900);
+  stroke(0); //sets the color used to draw lines
+  strokeWeight(1); //sets the thickness of the drawn line
+  beginRecord(SVG, m + "," + h + "," + s + "," + d + ":" + mo + ":" + yr +".svg");
+  noLoop(); //Stops Processing from continuously executing the code within draw() when used in setup() it should be last
+}
+
+void draw() {
+  background(255);
+  for (int i = 0; i < 50; i++) {
+    float x = random(0, width);
+    float y = random(0, height);
+    point(x, y);
+    for (int j = 0; j < i; j++) {
+      line(x, y, random(0, width), random(0, height));
+    }
+  }
+      endRecord();
+}
